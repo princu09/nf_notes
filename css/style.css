@@ -1,0 +1,55 @@
+.background {
+    background-color: #000;
+}
+
+.navbar-dark .navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.fa-search {
+    color: white;
+}
+
+#text {
+    min-height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 2;
+}
+
+#cursor {
+    display: inline-block;
+    vertical-align: middle;
+    width: 3px;
+    height: 20px;
+    background-color: orange;
+    animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        background-color: transparent
+    }
+
+    50% {
+        background-color: orange;
+    }
+}
+
+@media screen and (max-width: 413px) {
+    #text {
+        font-size: 18px;
+        line-height: 3;
+        min-height: 60px;
+    }
+
+    #cursor {
+        height: 18px;
+    }
+}
