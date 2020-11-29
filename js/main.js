@@ -31,15 +31,13 @@ function showNotes() {
     let html = "";
     notesObj.forEach(function (element, index) {
         html += `
-        <div class="col-md-4 col-sm align-self-center justify-content-center" style="display:flex">
-            <div class="noteCard m-2 card" style="width: 18rem;">
+            <div class="noteCard m-2 card">
                 <div class="card-body">
                     <h5 class="card-title font-weight-bold">Note ${index + 1}</h5>
                     <p class="card-text">${element}</p>
-                    <button onclick="delNote(this.id)" id="${index}" class="btn btn-outline-danger">Delete Note</button>
+                    <button onclick="delNoteAlert(this.id)" id="${index}" class="btn btn-outline-danger">Delete Note</button>
                 </div>
-            </div>
-        </div>`
+            </div>`
     });
     let notesElm = document.getElementById('notes');
     if (notesObj.length != 0) {
@@ -55,6 +53,13 @@ function showNotes() {
 }
 
 // Delete Notes Here From LocalStorage Using this function
+
+function delNoteAlert() {
+    let confirmDel = window.confirm('Are you sure you want to delete note ?');
+    if (confirmDel) {
+        delNote()
+    }
+}
 
 function delNote(index) {
     // console.log("I am delete funtion")
@@ -83,7 +88,7 @@ search.addEventListener("input", function () {
             // console.log(cardTxt);
             if (cardTxt.includes(inputVal)) {
                 element.parentElement.style.display = "flex";
-            }else {
+            } else {
                 element.parentElement.style.display = "none";
             }
         })
