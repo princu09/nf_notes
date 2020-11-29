@@ -81,16 +81,14 @@ search.addEventListener("input", function () {
     let inputVal = search.value.toLowerCase();
     let noteCards = document.getElementsByClassName('noteCard');
 
-    if (inputVal != null) {
-        Array.from(noteCards).forEach(function (element) {
-            let cardTxt = element.getElementsByTagName('p')[0].innerHTML.toLowerCase();
+    Array.from(noteCards).forEach(function (element) {
+        let cardTxt = element.getElementsByTagName('p')[0].innerHTML.toLowerCase();
 
-            // console.log(cardTxt);
-            if (cardTxt.includes(inputVal)) {
-                element.parentElement.style.display = "flex";
-            } else {
-                element.parentElement.style.display = "none";
-            }
-        })
-    }
+        // console.log(cardTxt);
+        if (cardTxt.includes(inputVal)) {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
+        }
+    })
 })
